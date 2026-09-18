@@ -1,0 +1,2 @@
+# Python dependencies for the MxV Rail capstone project.
+# Add packages and their tested versions as analysis code is developed.

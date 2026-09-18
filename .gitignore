@@ -1,0 +1,32 @@
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Local secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local project datasets
+/data/
+
+# Generated results
+/output/
+/outputs/
+
+# Temporary files
+*.tmp
+*.log
+~$*
+
+# Operating system files
+.DS_Store
+Thumbs.db

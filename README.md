@@ -131,7 +131,7 @@ the analysis, and displaying results.
 - Jamie Le
 - Sanskaar Mathur
 - Dominic Verbanac
-- Aaaron Nguyen
+- Aaron Nguyen
 - Brandon Grimes
 
 ## Community Partner

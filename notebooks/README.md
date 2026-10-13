@@ -1,41 +1,12 @@
-# Analysis Notebooks
+# Notebooks
 
-This folder will contain Jupyter notebooks for exploring the MxV Rail
-wheel profile data and hunting simulation results.
+Start with `demo.ipynb` to check the installation. It generates its own example data and runs without partner files. Follow `INSTALL.md` at the repository root.
 
-Our initial analysis will focus on understanding the datasets,
-checking data quality, and exploring relationships between wheel
-wear measurements and critical speed.
+The other notebooks use approved project data:
 
-## Naming Notebooks
+- `01_data_overview.ipynb`: inspects the workbook and profile files.
+- `CAPSTONE DATA MERGE WORK AND INFO.ipynb`: combines wheel wear and simulation results.
+- `02_empty_car_validation.ipynb`: checks the merged rows and compares left/right hollow wear.
+- `verbana3_EDA_and_modeling.ipynb`: creates exploratory plots and logistic regression models.
 
-Use numbered, descriptive filenames to make the analysis order clear.
-For example:
-
-- 01_data_overview.ipynb
-- 02_data_quality_and_joins.ipynb
-- 03_wear_measurements_and_hunting.ipynb
-
-These are suggested filenames; the notebooks have not been created yet.
-
-## Documenting the Analysis
-
-Each notebook should explain:
-
-- Its purpose and research question
-- Required datasets and relevant variables
-- Data preparation steps and assumptions
-- Findings, limitations, and follow-up questions
-
-Keep track of measurement units and whether observations represent
-individual wheels, wheelsets, trucks, or wheel-rail assessments.
-
-## Before Committing
-
-- Use relative paths instead of paths specific to your computer.
-- Keep restricted datasets in the local data/ folder.
-- Remove unnecessary outputs and any confidential information.
-- Check that the notebook runs in order once its required data and
-  dependencies are available.
-
-Move reusable functions into src/ as the analysis develops.
+Input paths for these notebooks are listed in `INSTALL.md`.

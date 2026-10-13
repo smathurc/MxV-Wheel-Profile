@@ -17,14 +17,10 @@ Tested package versions:
 
 ## Second-computer test
 
-- Tester:
-- Test date:
-- Operating system:
-- Python version:
-- Followed INSTALL.md from a fresh clone:
-- Installed requirements.txt successfully:
-- Ran all cells in notebooks/demo.ipynb:
-- Plots and model results appeared:
-- Final success message appeared:
-- Errors or confusing steps:
-- Overall result:
+- Tester: Brandon Grimes
+- Date: 10/13/26
+- Operating system: Windows 10
+- Python version: 3.13.9
+- Followed INSTALL.md from a fresh clone: True
+- All cells completed and final success message appeared: True
+- Corrections needed: None

@@ -104,8 +104,7 @@ useful if the available data does not support reliable prediction.
 - `requirements.txt`: Python dependencies used by the project.
 - `INSTALL.md`: Environment setup and reproduction instructions.
 
-A license file and any required unsigned IP agreement will be added
-after the applicable terms are confirmed.
+See [LICENSE](LICENSE) for the software license.
 
 ## Getting Started
 
@@ -151,10 +150,7 @@ and check that no restricted information is included.
 
 ## License and Data Restrictions
 
-Use and distribution of project materials are governed by the
-applicable MxV Rail agreements. The team will confirm the appropriate
-license wording with the instructors and community partner before
-adding a license file.
+See [LICENSE](LICENSE) for software licensing. Partner data remains subject to the applicable MxV Rail agreements.
 
 ## Acknowledgments
 

@@ -25,8 +25,3 @@ Tested package versions:
 - All cells completed and final success message appeared:
 - Corrections needed:
 
-## Remaining submission checks
-
-- Confirm the appropriate license with the instructor/partner; no license grant has been invented.
-- Confirm every teammate has contributed and the instructor has repository access.
-- Merge the reviewed milestone contribution into main before submission.

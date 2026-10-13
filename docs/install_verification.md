@@ -15,18 +15,16 @@ Tested package versions:
 - nbclient: 0.11.0
 - nbformat: 5.11.1
 
-## Second computer — teammate action required
+## Second-computer test
 
 - Tester:
-- Date:
+- Test date:
 - Operating system:
 - Python version:
 - Followed INSTALL.md from a fresh clone:
-- All cells completed and final success message appeared:
-- Corrections needed:
-
-## Remaining submission checks
-
-- Confirm the appropriate license with the instructor/partner; no license grant has been invented.
-- Confirm every teammate has contributed and the instructor has repository access.
-- Merge the reviewed milestone contribution into main before submission.
+- Installed requirements.txt successfully:
+- Ran all cells in notebooks/demo.ipynb:
+- Plots and model results appeared:
+- Final success message appeared:
+- Errors or confusing steps:
+- Overall result:

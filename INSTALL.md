@@ -1,127 +1,75 @@
 # Installation and Setup
 
-This guide explains how to set up a local copy of our MxV Rail
-capstone project.
+This guide shows how to install the packages and run our demo. The demo makes its own example data, so you do not need access to the partner data.
+Use Python 3.12. We will record our test results in `docs/install_verification.md`. A teammate still needs to test the setup on another computer.
 
-The repository is currently being prepared for exploratory data
-analysis. We will update these instructions as we add code and
-confirm the environment needed to run it.
+## 1. Install prerequisites and get the repository
 
-## Prerequisites
-
-Before starting, make sure you have:
-
-- Git installed
-- Python installed
-- Access to the team's repository
-- Authorized access to the project data
-
-We will record the tested Python version once our initial analysis
-environment is established.
-
-## 1. Clone the Repository
-
-Open the repository in your browser and copy its HTTPS clone URL
-from the Code menu.
-
-In your terminal, run the following command, replacing
-YOUR_REPOSITORY_URL with the copied URL:
+Install [Python 3.12](https://www.python.org/downloads/) and [Git](https://git-scm.com/downloads) for your operating system. On Windows, enable the Python installer option to add Python to PATH. Repository access is required if the repository is private.
 
 ```bash
-git clone YOUR_REPOSITORY_URL
+git clone https://github.com/smathurc/MxV-Wheel-Profile.git
+cd MxV-Wheel-Profile
 ```
 
-Enter the downloaded repository folder, replacing
-YOUR_REPOSITORY_FOLDER with its name:
+For now, run `git switch jamie/work` to get these demo files. Once we merge them into main, you can skip this step.
+
+## 2. Create and activate an isolated environment
+
+Run these commands from the repository root.
+
+macOS / Linux:
 
 ```bash
-cd YOUR_REPOSITORY_FOLDER
-```
-
-## 2. Create a Virtual Environment
-
-From the repository folder, run:
-
-```bash
-python -m venv .venv
-```
-
-If your computer uses python3 instead of python, run:
-
-```bash
-python3 -m venv .venv
-```
-
-Activate the environment using the command for your operating system.
-
-### macOS or Linux
-
-```bash
+python3.12 -m venv .venv
 source .venv/bin/activate
 ```
 
-### Windows PowerShell
+Windows PowerShell:
 
 ```powershell
+py -3.12 -m venv .venv
 .venv\Scripts\Activate.ps1
 ```
 
-Activate this environment each time you start a new terminal session
-to work on the project.
+If PowerShell blocks activation, use Command Prompt and `.venv\Scripts\activate.bat` instead. Activate the environment each time you open a new terminal. If Conda base is active, run `conda deactivate` before activating this environment.
 
-## 3. Install Dependencies
-
-With the environment activated, run:
+## 3. Install dependencies and launch the demo
 
 ```bash
 python -m pip install -r requirements.txt
+python -m notebook
 ```
 
-The requirements.txt file currently serves as a placeholder.
-We will add the packages and tested versions used by our analysis
-as code is introduced.
+In the browser, open `notebooks/demo.ipynb`. Choose **Kernel → Restart Kernel and Run All Cells**. Wait for all cells to finish.
 
-## 4. Set Up Project Data
+The notebook uses pandas and NumPy for data handling, Matplotlib for figures, and scikit-learn for modeling. Jupyter Notebook and ipykernel provide the notebook interface. openpyxl supports the original Excel analysis; nbclient and nbformat support execution verification.
 
-Obtain the datasets through the team's approved access process.
+## 4. Verify success
 
-Create a folder named data in the repository's top-level directory:
+The first cell reports **560 synthetic rows, 20 invented cars, and 280 truck/rail assessments**. You should see hunting-rate and wear plots, a classification report and confusion matrix. The last cell prints:
 
-```bash
-mkdir data
+```text
+Demo completed successfully: synthetic data, two plots, grouped split, and one model ran.
 ```
 
-Store local project datasets in this folder. The .gitignore file
-excludes data/ from version control.
+Check that all cells finish without errors. The model scores use made-up data, so they do not show how well the model works on real equipment.
 
-Do not upload restricted datasets, signed agreements, credentials,
-or other confidential materials.
+## Example data
 
-We will document the expected input filenames and folder structure
-when the initial data workflow is established.
+You do not need to download example data. `demo.ipynb` makes it using random seed 42 each time you restart and run all cells. We do not read partner files or save a dataset in this demo.
 
-## 5. Run the Analysis
+## Authorized partner analysis
 
-An executable analysis workflow has not yet been added.
+To run the original notebooks, get the project data through our approved team access process. Keep the data and notebook outputs that show it out of GitHub.
 
-As the project develops, this section will include:
+- `01_data_overview.ipynb`: expects `data/Eq_Con_Fit_Results.xlsm` and `data/Profiles/`, relative to the repository root.
+- `02_empty_car_validation.ipynb`: expects `data/final_merged_data.csv` (or its documented fallback filename).
+- `CAPSTONE DATA MERGE WORK AND INFO.ipynb`: currently uses `Data/` relative to its working directory and produces `Data/final_merged_data.csv`.
+- `verbana3_EDA_and_modeling.ipynb`: currently reads `final_merged_data.csv` from its working directory.
 
-- Required input files
-- The order for running notebooks or scripts
-- Exact commands where applicable
-- Expected outputs
-- Assumptions needed to interpret the results
+The original notebooks use different data paths. We still need to make those consistent. For this setup check, run `demo.ipynb`. Our `.gitignore` excludes the `data/` folder at the repository root.
 
-Exploratory notebooks will be stored in notebooks/, and reusable
-Python code will be stored in src/.
+## Second-computer check
 
-## Testing
-
-No automated tests have been added yet. We will document how to
-run them when tests are introduced.
-
-## Reproducibility
-
-As we develop the analysis, we will record dependency versions,
-use relative file paths, and document data preparation steps.
-Where applicable, we will also record random seeds.
+Have a teammate clone the repo on another computer and follow these steps. They should run all demo cells and add their computer details and results to `docs/install_verification.md`. The assignment asks us to test on more than one computer.

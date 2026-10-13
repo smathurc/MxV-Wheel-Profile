@@ -1,18 +1,9 @@
 # Example Data
 
-This folder is for approved sample data or synthetic data that can
-be used to try out our code without accessing the full project dataset.
+We generate the example data in `notebooks/demo.ipynb`, so there is nothing to download here. We use random seed 42 to get the same example each time.
 
-We have not added any example data yet. The MxV Rail data is subject
-to our project agreements, so we will confirm what can be shared
-before adding files here.
+The example has 20 made-up cars, two trucks per car, seven rail profiles, and two axles for each truck/rail combination. That gives us 560 rows.
 
-For any examples we add, we will explain:
+We use Car, Truck, Axle, and Rail_Profile to identify each row. Empty_Truck_Hunted is a true/false value, and the hunting-speed columns use mph. The wear measurements and Eq Con 3mm values are random numbers with the column names our modeling code needs. They are not measurements from real equipment.
 
-- What the file contains
-- What the columns mean and their units
-- Whether the data is synthetic or an approved sample
-- Which notebook or script uses it
-
-Keep restricted project data in the local data/ folder, which is
-excluded from Git.
+Follow `INSTALL.md` and run all cells in the demo. Keep the real project data in your local `data/` folder and out of GitHub.

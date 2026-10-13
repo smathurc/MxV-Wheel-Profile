@@ -111,9 +111,7 @@ after the applicable terms are confirmed.
 
 See [INSTALL.md](INSTALL.md) for setup instructions.
 
-The repository is being set up for initial data exploration. Execution
-instructions and tested dependency versions will be updated as the
-analysis workflow is developed.
+Follow the setup guide, then run [our demo](notebooks/demo.ipynb). We make example data in the notebook and use it for plots and logistic regression. The demo uses made-up data, so these results are only for checking that the code runs.
 
 ## Expected Deliverables
 

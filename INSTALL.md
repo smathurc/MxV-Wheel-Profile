@@ -1,7 +1,7 @@
 # Installation and Setup
 
 This guide shows how to install the packages and run our demo. The demo makes its own example data, so you do not need access to the partner data.
-Use Python 3.12. We tested the demo in a fresh environment on macOS with Python 3.12.3. See `docs/install_verification.md` for the results and tested package versions. A teammate still needs to test the setup on another computer.
+Use Python 3.12. We tested the demo in a fresh environment on macOS with Python 3.12.3. See `docs/install_verification.md` for the results and tested package versions.
 
 ## 1. Install prerequisites and get the repository
 
@@ -66,8 +66,4 @@ To run the original notebooks, get the project data through our approved team ac
 - `CAPSTONE DATA MERGE WORK AND INFO.ipynb`: currently uses `Data/` relative to its working directory and produces `Data/final_merged_data.csv`.
 - `verbana3_EDA_and_modeling.ipynb`: currently reads `final_merged_data.csv` from its working directory.
 
-The original notebooks use different data paths. We still need to make those consistent. For this setup check, run `demo.ipynb`. Our `.gitignore` excludes the `data/` folder at the repository root.
-
-## Second-computer check
-
-Have a teammate clone the repo on another computer and follow these steps. They should run all demo cells and add their computer details and results to `docs/install_verification.md`. The assignment asks us to test on more than one computer.
+The original notebooks use the data paths listed above. For the installation check, run `demo.ipynb`. Our `.gitignore` excludes the `data/` folder at the repository root.

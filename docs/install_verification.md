@@ -15,7 +15,7 @@ Tested package versions:
 - nbclient: 0.11.0
 - nbformat: 5.11.1
 
-## Second computer — teammate action required
+## Second-computer test
 
 - Tester: Brandon Grimes
 - Date: 10/13/26
@@ -24,4 +24,3 @@ Tested package versions:
 - Followed INSTALL.md from a fresh clone: True
 - All cells completed and final success message appeared: True
 - Corrections needed: None
-

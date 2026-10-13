@@ -1,7 +1,7 @@
 # Installation and Setup
 
 This guide shows how to install the packages and run our demo. The demo makes its own example data, so you do not need access to the partner data.
-Use Python 3.12. We will record our test results in `docs/install_verification.md`. A teammate still needs to test the setup on another computer.
+Use Python 3.12. We tested the demo in a fresh environment on macOS with Python 3.12.3. See `docs/install_verification.md` for the results and tested package versions. A teammate still needs to test the setup on another computer.
 
 ## 1. Install prerequisites and get the repository
 
@@ -11,8 +11,6 @@ Install [Python 3.12](https://www.python.org/downloads/) and [Git](https://git-s
 git clone https://github.com/smathurc/MxV-Wheel-Profile.git
 cd MxV-Wheel-Profile
 ```
-
-For now, run `git switch jamie/work` to get these demo files. Once we merge them into main, you can skip this step.
 
 ## 2. Create and activate an isolated environment
 
@@ -47,7 +45,7 @@ The notebook uses pandas and NumPy for data handling, Matplotlib for figures, an
 
 ## 4. Verify success
 
-The first cell reports **560 synthetic rows, 20 invented cars, and 280 truck/rail assessments**. You should see hunting-rate and wear plots, a classification report and confusion matrix. The last cell prints:
+The first cell reports **560 synthetic rows, 20 invented cars, and 280 truck/rail assessments**. You should see hunting-rate and wear plots, a classification report, and a confusion matrix. The last cell prints:
 
 ```text
 Demo completed successfully: synthetic data, two plots, grouped split, and one model ran.

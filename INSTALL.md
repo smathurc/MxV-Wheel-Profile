@@ -65,5 +65,6 @@ To run the original notebooks, get the project data through our approved team ac
 - `02_empty_car_validation.ipynb`: expects `data/final_merged_data.csv` (or its documented fallback filename).
 - `CAPSTONE DATA MERGE WORK AND INFO.ipynb`: currently uses `Data/` relative to its working directory and produces `Data/final_merged_data.csv`.
 - `verbana3_EDA_and_modeling.ipynb`: currently reads `final_merged_data.csv` from its working directory.
+- `03_rail_profiles.ipynb`: expects `data/Profiles/Rail profiles/` and `data/final_merged_data.csv`, relative to the repository root.
 
 The original notebooks use the data paths listed above. For the installation check, run `demo.ipynb`. Our `.gitignore` excludes the `data/` folder at the repository root.

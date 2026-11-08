@@ -1,6 +1,6 @@
 # Installation and Setup
 
-This guide shows how to install the packages and run our demo. The demo makes its own example data, so you do not need access to the partner data.
+Use this guide to run the synthetic baseline. It generates a sample input table, makes two plots, and trains and tests one logistic regression model. You do not need partner data.
 Use Python 3.12. We tested the demo in a fresh environment on macOS with Python 3.12.3. See `docs/install_verification.md` for the results and tested package versions.
 
 ## 1. Install prerequisites and get the repository
@@ -34,12 +34,14 @@ If PowerShell blocks activation, use Command Prompt and `.venv\Scripts\activate.
 
 ## 3. Install dependencies and launch the demo
 
+If you already have the project and its environment, open a terminal in the project folder and activate that environment. Run the install command below if the dependencies are missing or if `requirements.txt` has changed. Then launch Jupyter.
+
 ```bash
 python -m pip install -r requirements.txt
 python -m notebook
 ```
 
-In the browser, open `notebooks/demo.ipynb`. Choose **Kernel → Restart Kernel and Run All Cells**. Wait for all cells to finish.
+In the browser, open `notebooks/demo.ipynb`. Choose **Kernel → Restart Kernel and Run All Cells**. Wait for all cells to finish. If you see `ModuleNotFoundError`, check that Jupyter was started from the environment where you ran the install command. Stop the old Jupyter session and relaunch it from the active project environment.
 
 The notebook uses pandas and NumPy for data handling, Matplotlib for figures, and scikit-learn for modeling. Jupyter Notebook and ipykernel provide the notebook interface. openpyxl supports the original Excel analysis; nbclient and nbformat support execution verification.
 
@@ -57,9 +59,11 @@ Check that all cells finish without errors. The model scores use made-up data, s
 
 You do not need to download example data. `demo.ipynb` makes it using random seed 42 each time you restart and run all cells. We do not read partner files or save a dataset in this demo.
 
-## Authorized partner analysis
+## Other project notebooks
 
-To run the original notebooks, get the project data through our approved team access process. Keep the data and notebook outputs that show it out of GitHub.
+The team keeps the source-file merge and the other modeling experiments in separate notebooks. The baseline starts with the merged-table format. It can be run by itself for a walkthrough or an installation check.
+
+To run the partner-data notebooks, get the project data through our approved team access process. Keep the data and notebook outputs that show it out of GitHub.
 
 - `01_data_overview.ipynb`: expects `data/Eq_Con_Fit_Results.xlsm` and `data/Profiles/`, relative to the repository root.
 - `02_empty_car_validation.ipynb`: expects `data/final_merged_data.csv` (or its documented fallback filename).
@@ -67,4 +71,4 @@ To run the original notebooks, get the project data through our approved team ac
 - `verbana3_EDA_and_modeling.ipynb`: currently reads `final_merged_data.csv` from its working directory.
 - `03_rail_profiles.ipynb`: expects `data/Profiles/Rail profiles/` and `data/final_merged_data.csv`, relative to the repository root.
 
-The original notebooks use the data paths listed above. For the installation check, run `demo.ipynb`. Our `.gitignore` excludes the `data/` folder at the repository root.
+Check the inputs and dependencies in the notebook you plan to run. Our `.gitignore` excludes the `data/` folder at the repository root.

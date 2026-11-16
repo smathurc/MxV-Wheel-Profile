@@ -104,16 +104,13 @@ useful if the available data does not support reliable prediction.
 - `requirements.txt`: Python dependencies used by the project.
 - `INSTALL.md`: Environment setup and reproduction instructions.
 
-A license file and any required unsigned IP agreement will be added
-after the applicable terms are confirmed.
+See [LICENSE](LICENSE) for the software license.
 
 ## Getting Started
 
 See [INSTALL.md](INSTALL.md) for setup instructions.
 
-The repository is being set up for initial data exploration. Execution
-instructions and tested dependency versions will be updated as the
-analysis workflow is developed.
+Follow the setup guide, then run [our demo](notebooks/demo.ipynb). We make example data in the notebook and use it for plots and logistic regression. The demo uses made-up data, so these results are only for checking that the code runs.
 
 ## Expected Deliverables
 
@@ -153,10 +150,7 @@ and check that no restricted information is included.
 
 ## License and Data Restrictions
 
-Use and distribution of project materials are governed by the
-applicable MxV Rail agreements. The team will confirm the appropriate
-license wording with the instructors and community partner before
-adding a license file.
+See [LICENSE](LICENSE) for software licensing. Partner data remains subject to the applicable MxV Rail agreements.
 
 ## Acknowledgments
 

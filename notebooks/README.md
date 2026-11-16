@@ -1,41 +1,19 @@
-# Analysis Notebooks
+# Notebooks
 
-This folder will contain Jupyter notebooks for exploring the MxV Rail
-wheel profile data and hunting simulation results.
+Start with `demo.ipynb` to check the installation. It generates its own example data and runs without partner files. Follow `INSTALL.md` at the repository root.
 
-Our initial analysis will focus on understanding the datasets,
-checking data quality, and exploring relationships between wheel
-wear measurements and critical speed.
+The other notebooks use approved project data:
 
-## Naming Notebooks
+- `00_capstone_data_merge_work_and_info`: combines wheel wear and simulation results.
+- `01_data_overview.ipynb`: inspects the workbook and profile files.
+- `02_empty_car_validation.ipynb`: checks the merged rows and compares left/right hollow wear.
+- `03_contact_hunting_model.ipynb`: tests wheelset mismatch and contact measurements
+- `03_rail_profiles.ipynb`: reads the seven rail profiles, measures how rounded the rail head is, and compares that with conicity and hunting.
+- `04_profile_shape_extension.ipynb`: tests tread-shape measurements add information
+- `05_Fit_File_Analysis.ipynb`: reads the fit files and analyzes them.
+- `06_nguyenaa_randomforest_and_modeling`: creates a RF classifier to analyze selected features.
+- `07_verbana3_EDA_and_modeling.ipynb`: creates exploratory plots and logistic regression models.
+- `08_team_model_comparison.ipynb`: Comparisons of wheel-wear and profile-shape findings.
+- `demo.ipynb`: runs a short demo of the project inputs and model.
 
-Use numbered, descriptive filenames to make the analysis order clear.
-For example:
-
-- 01_data_overview.ipynb
-- 02_data_quality_and_joins.ipynb
-- 03_wear_measurements_and_hunting.ipynb
-
-These are suggested filenames; the notebooks have not been created yet.
-
-## Documenting the Analysis
-
-Each notebook should explain:
-
-- Its purpose and research question
-- Required datasets and relevant variables
-- Data preparation steps and assumptions
-- Findings, limitations, and follow-up questions
-
-Keep track of measurement units and whether observations represent
-individual wheels, wheelsets, trucks, or wheel-rail assessments.
-
-## Before Committing
-
-- Use relative paths instead of paths specific to your computer.
-- Keep restricted datasets in the local data/ folder.
-- Remove unnecessary outputs and any confidential information.
-- Check that the notebook runs in order once its required data and
-  dependencies are available.
-
-Move reusable functions into src/ as the analysis develops.
+Input paths for these notebooks are listed in `INSTALL.md`.

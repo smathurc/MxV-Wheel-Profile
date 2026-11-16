@@ -12,7 +12,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from contact_hunting import ACC_SPEED, DISP_SPEED, CONTACT_COLUMNS
 from team_data import (
     DOM_MEASUREMENTS, FEATURE_SETS, RAIL_COLUMNS, RF_ORIGINAL_COLUMNS,
-    prepare_feature_tables, prepare_rail_summary, sha256_file,
+    prepare_feature_tables, prepare_rail_summary,
 )
 
 
@@ -105,12 +105,12 @@ class TeamDataTests(unittest.TestCase):
                                     "\n".join(f"{a} {b} 0" for a, b in zip(x, y)),
                                     encoding="cp1252")
                     paths.append(path)
-            hashes = {p: sha256_file(p) for p in paths}
+            sources = {p: p.read_bytes() for p in paths}
             summary = prepare_rail_summary(folder)
             self.assertEqual(summary.Rail_Profile.tolist(), list(range(1, 8)))
             np.testing.assert_allclose(summary.rail_crown_mean, np.arange(101., 108.))
             np.testing.assert_allclose(summary.rail_crown_range, 0, atol=1e-12)
-            self.assertEqual(hashes, {p: sha256_file(p) for p in paths})
+            self.assertEqual(sources, {p: p.read_bytes() for p in paths})
             paths[0].unlink()
             with self.assertRaisesRegex(ValueError, "11"):
                 prepare_rail_summary(folder)

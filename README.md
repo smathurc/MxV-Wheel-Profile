@@ -85,8 +85,6 @@ of a causal wheel characteristic or a deployment-ready predictor.
 ├── INSTALL.md
 ├── .gitignore
 ├── requirements.txt
-├── requirements-all.txt
-├── scripts/
 ├── src/
 ├── notebooks/
 ├── docs/
@@ -102,9 +100,7 @@ of a causal wheel characteristic or a deployment-ready predictor.
 - `example_data/`: Approved sample or synthetic data for demonstrating
   the workflow.
 - `tests/`: Tests for data processing and analysis code.
-- `requirements.txt`: Base dependencies; `requirements-all.txt` adds the full
-  modeling environment.
-- `scripts/`: Optional execution of selected or all notebooks in fresh kernels.
+- `requirements.txt`: Dependencies for the demo and all project notebooks.
 - `INSTALL.md`: Environment setup and reproduction instructions.
 
 See [LICENSE](LICENSE) for the software license.
@@ -118,8 +114,8 @@ Follow the setup guide, then run [our demo](notebooks/demo.ipynb). We make examp
 ## Reproducing the analysis
 
 Follow [INSTALL.md](INSTALL.md) to install the full environment and place the
-approved Teams download under `data/`. Then run any notebook from a fresh
-kernel, or run all notebooks with `python scripts/run_notebooks.py`.
+approved Teams download under `data/`. Then open any notebook in Jupyter,
+restart its kernel and run all cells.
 See [the figure instructions](INSTALL.md#4-reproducing-the-figures) for workflows and outputs.
 No notebook path edits are needed.
 

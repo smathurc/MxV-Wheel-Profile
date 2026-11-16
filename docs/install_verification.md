@@ -2,32 +2,17 @@
 
 ## Full notebook workflow — November 16, 2026
 
-Tested on macOS arm64 with Python 3.12.3. A new environment installed
-`requirements-all.txt` with `constraints-comparison.txt`. All 39 synthetic tests
-passed. `python scripts/run_notebooks.py` completed all 11 notebooks in separate
-fresh kernels using the supplied Teams data under root `data/`, with no path
-edits or notebook-local input copies. The earlier audit also checked that input
-hashes were unchanged.
+Tested on macOS arm64 with Python 3.12.3. A fresh environment installed the
+single `requirements.txt` with no dependency conflicts. All 36 synthetic tests
+and the documented terminal demo passed.
 
-The run regenerated the merged CSV, profile-shape exports and shared comparison
-outputs. Executed copies and the execution summary remain private under
-`outputs/notebooks/`. The model definitions, splits and feature calculations
-were unchanged. FIT training remains nondeterministic as documented.
+The earlier review completed all 11 notebooks in fresh kernels using the Teams
+data under root `data/`, without path edits. The setup cleanup preserves the
+model settings, validation splits and feature calculations.
 
-The final review rerun passed all 11 notebooks and all 39 tests. Notebook/source
-validation passed, as did the installed dependency check. The prose and plot-label
-review preserved model constructors, settings and split/prediction calls.
-
-| Platform | Verification |
-|---|---|
-| Apple Silicon Mac, Python 3.12 | Full install, 39 tests and all 11 notebooks passed |
-| Windows x64, Python 3.12 | All 13 pinned packages have compatible wheels; full workflow not run |
-| Linux x86_64, Python 3.12 | All 13 pinned packages have compatible wheels; full workflow not run |
-| Intel Mac | Full environment unsupported: pinned TensorFlow has no Intel Mac build |
-
-Wheel availability was checked against PyPI on November 16, 2026. It does not
-verify notebook execution on Windows/Linux. Earlier demo-only checks are
-preserved below.
+Windows/Linux package availability was checked, but the full workflow has not
+been run on those systems. Intel Macs are unsupported. See INSTALL.md for the
+supported setup. Earlier demo-only checks are preserved below.
 
 ## Local execution
 

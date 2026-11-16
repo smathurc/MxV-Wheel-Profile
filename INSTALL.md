@@ -48,12 +48,11 @@ install it with `sudo apt install libgomp1` if it is missing.
 Install all notebook dependencies:
 
 ```bash
-python -m pip install -r requirements-all.txt -c constraints-comparison.txt
+python -m pip install -r requirements.txt
 ```
 
 This installs the packages for every notebook, including XGBoost, SHAP and
-TensorFlow. The constraints file specifies the package versions used in our
-verified run.
+TensorFlow, using the package versions from our verified run.
 
 ## 2. Download the data
 
@@ -116,29 +115,16 @@ and demo:
 
 ```bash
 python -m unittest discover -s tests -v
-python scripts/run_notebooks.py demo.ipynb
+python -m jupyter nbconvert --to notebook --execute notebooks/demo.ipynb --output demo_executed --output-dir outputs/notebooks
 ```
 
-All tests should pass. To run all notebooks in separate fresh kernels:
+All tests should pass. The demo command saves an executed copy under
+`outputs/notebooks/`. Run the other project notebooks using the Jupyter steps
+above.
 
-```bash
-python scripts/run_notebooks.py
-```
-
-To run just the profile or shared comparison:
-
-```bash
-python scripts/run_notebooks.py 04_profile_shape_extension.ipynb
-python scripts/run_team_comparison.py
-```
-
-Executed copies and `execution_summary.json` are saved under `outputs/notebooks/`.
 The merge writes regenerated CSVs to `outputs/data/`; analyses read the supplied
-CSV in `data/`. Source notebooks and downloaded inputs are unchanged.
-Allow several minutes for the full run, including FIT training.
-
-A successful terminal run finishes every selected notebook without errors. The
-execution summary records each notebook's status and runtime.
+CSV in `data/`. The terminal command leaves source notebooks unchanged.
+Allow several minutes to run every notebook, including FIT training.
 
 ## 4. Reproducing the figures
 
@@ -166,7 +152,7 @@ the notebooks explain the model settings, bootstrap calculations and limitations
 
 Each stem produces a 300 dpi `.png` and a vector `.pdf`. Notebook 04 also saves
 `_plot_data.csv` for each stem. Notebook 08 saves `metrics.csv`, `rail_findings.csv`
-and supporting predictions, comparisons and a run manifest in its output folder.
+and supporting predictions and comparisons in its output folder.
 
 Other exploratory plots appear in their notebooks and executed copies; they
 are not automatically saved as individual images. To inspect a completed run
@@ -182,7 +168,7 @@ or code change. FIT training is unseeded, so its scores can vary between runs.
 - **Missing package:** activate `.venv`, repeat the install command and relaunch Jupyter.
 - **Missing `libomp` on macOS:** install OpenMP using the link in section 1.
 
-Existing external-data workflows can use `HUNTING_DATA_DIR` or the runner's
-`--data-dir "/path/to/Data"` option. Neither is needed for the default layout.
+Existing external-data workflows can use `HUNTING_DATA_DIR`.
+It is not needed for the default layout.
 See [docs/install_verification.md](docs/install_verification.md) for the verified
 macOS run. The full workflow has not been tested on Windows/Linux.

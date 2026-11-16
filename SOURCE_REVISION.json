@@ -1,5 +1,0 @@
-{
-  "repository": "https://github.com/smathurc/MxV-Wheel-Profile",
-  "base_revision": "c4cbd861e78effdb5d5aa64ae51e228e4f06bf38",
-  "description": "Analysis revision before the shared input and execution setup changes. Run manifests also hash the executed notebook and helper files."
-}

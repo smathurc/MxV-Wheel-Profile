@@ -1,3 +1,0 @@
-# Shared held-car model comparison; the base demo stays lightweight.
--r requirements.txt
-xgboost==3.4.1

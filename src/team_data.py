@@ -8,7 +8,6 @@ Source units, reconstructed tread coordinates and rail geometry remain
 provisional pending confirmation of the original exports.
 """
 
-import hashlib
 from pathlib import Path
 import re
 
@@ -53,15 +52,6 @@ FEATURE_SETS = {
     "dom": DOM_COLUMNS,
     "core": ["conicity_mean", *DOM_COLUMNS],
 }
-
-
-def sha256_file(path):
-    """Hash a local source without modifying or copying it."""
-    digest = hashlib.sha256()
-    with Path(path).open("rb") as stream:
-        for block in iter(lambda: stream.read(1024 * 1024), b""):
-            digest.update(block)
-    return digest.hexdigest()
 
 
 def prepare_rail_summary(rail_folder):
@@ -202,11 +192,7 @@ Rail identity is excluded from numeric bundles and encoded by the evaluator.
 
 
 def load_benchmark_data(data_dir):
-    """Read approved local inputs, retaining SHA256 hashes for reproducibility.
-
-All returned data remain in memory; no source or output file is written.
-Hashes cover exactly the merged table, contact table and WHL/BAN files used.
-"""
+    """Read the approved local inputs and prepare the shared feature tables."""
     data_dir = Path(data_dir).expanduser().resolve()
     merged_path = data_dir / "final_merged_data.csv"
     if not merged_path.exists():
@@ -214,13 +200,6 @@ Hashes cover exactly the merged table, contact table and WHL/BAN files used.
     contact_path = data_dir / "Profiles/WNTs/2023-06-21 - Hunt_Disp_Max_CP_Difference.csv"
     profile_folder = data_dir / "Profiles/Candidate wheel profiles"
     rail_folder = data_dir / "Profiles/Rail profiles"
-    paths = [merged_path, contact_path, *sorted(profile_folder.glob("*.WHL")),
-             *sorted(rail_folder.glob("*.BAN"))]
-    hashes = {str(path): sha256_file(path) for path in paths}
-    result = prepare_feature_tables(pd.read_csv(merged_path), pd.read_csv(contact_path, encoding="cp1252"),
-                                    profile_folder, prepare_rail_summary(rail_folder))
-    after = {str(path): sha256_file(path) for path in paths}
-    if after != hashes:
-        raise ValueError("An input changed while benchmark data were being loaded.")
-    result["input_hashes"] = hashes
-    return result
+    return prepare_feature_tables(pd.read_csv(merged_path),
+                                  pd.read_csv(contact_path, encoding="cp1252"),
+                                  profile_folder, prepare_rail_summary(rail_folder))

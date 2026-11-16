@@ -91,7 +91,7 @@ as physical curvature or equivalent conicity. Individual feature effects are
 not estimated. The additional notebook also checks the gain after omitting
 each car's fixed predictions from scoring; this is not a retraining experiment.
 
-Run the synthetic checks from this folder:
+Run the synthetic checks from the repository root:
 
 ```sh
 python -m unittest discover -s tests -v

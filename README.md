@@ -16,10 +16,9 @@ the critical speed. If that speed falls below the vehicle's operating
 speed, hunting can occur during normal operation.
 
 Our goal is to identify wheel profile characteristics associated with
-more frequent hunting and lower critical speeds. We will begin by
-examining standard wear measurements, then investigate whether
-additional descriptions of profile shape help explain differences
-in stability.
+more frequent hunting and lower critical speeds. We compare standard wear
+measurements, contact summaries and tread-shape descriptors, using descriptive
+plots and grouped predictive checks.
 
 ## Research Questions
 
@@ -35,32 +34,31 @@ in stability.
 
 ## Data
 
-The project overview describes 29 unique trucks evaluated against seven
-worn rail profiles, resulting in 203 stability assessments. These
-assessments cover 14 cars with naturally worn wheel profiles and one
-car with unworn wheel profiles.
+The source workbook contains 203 truck/rail assessments, including an unworn
+reference. Our measured-car merge excludes that reference and contains 392
+axle/rail rows: 14 cars, 28 trucks and 196 truck/rail assessments under seven
+rail conditions.
 
-The planned data sources include:
+The data sources include:
 
 - Critical speeds from NUCARS hunting simulations
 - Standard wheel profile wear measurements
 - Equivalent conicity for wheel-rail combinations
 - Measured two-dimensional wheel and rail profiles
-- A feature schema describing the data columns
 
-The data is provided in CSV or Excel files and requires linking
-information across sources. We will document identifiers, units, and
-relationships between datasets before combining them.
+CSV/Excel results are joined to the supplied wheel and rail files by their
+car, axle/truck and rail identifiers. The notebooks document the joins and
+flag unresolved units or source conventions.
 
-Wheels operate together within wheelsets and trucks. Our analysis will
-account for that structure rather than assume each wheel or assessment
-is an independent observation.
+Wheels operate together within wheelsets and trucks, and the same vehicles
+are assessed under several rails. The shared comparison holds out complete
+cars. Personal notebooks identify their own observation and split units.
 
 Project data is subject to the applicable NDA and IP agreement.
 Restricted data is not included in this repository. Team members
 should use the approved data storage and access process.
 
-## Planned Approach
+## Approach
 
 1. Inspect the datasets, confirm their structure, and document variables
    and units.
@@ -69,14 +67,15 @@ should use the approved data storage and access process.
 3. Explore relationships between standard wear measurements, critical
    speed, and hunting behavior.
 4. Develop and evaluate additional wheel profile shape descriptors.
-5. Consider clustering and predictive modeling if the data and initial
-   findings support those methods.
+5. Compare predictive models and feature sets with the grouping appropriate
+   to each experiment.
 6. Communicate findings through visualizations and document the steps
    needed to reproduce the analysis.
 
-Predictive modeling is a possible extension rather than a guaranteed
-outcome. Descriptive analysis and clear visualizations will remain
-useful if the available data does not support reliable prediction.
+The current notebooks include logistic regression, random forest, XGBoost,
+kernel-ridge comparisons and a FIT/LSTM prototype. We interpret their scores
+within the small sample and each validation design; they are not evidence
+of a causal wheel characteristic or a deployment-ready predictor.
 
 ## Repository Structure
 
@@ -86,6 +85,8 @@ useful if the available data does not support reliable prediction.
 ├── INSTALL.md
 ├── .gitignore
 ├── requirements.txt
+├── requirements-all.txt
+├── scripts/
 ├── src/
 ├── notebooks/
 ├── docs/
@@ -101,7 +102,9 @@ useful if the available data does not support reliable prediction.
 - `example_data/`: Approved sample or synthetic data for demonstrating
   the workflow.
 - `tests/`: Tests for data processing and analysis code.
-- `requirements.txt`: Python dependencies used by the project.
+- `requirements.txt`: Base dependencies; `requirements-all.txt` adds the full
+  modeling environment.
+- `scripts/`: Optional execution of selected or all notebooks in fresh kernels.
 - `INSTALL.md`: Environment setup and reproduction instructions.
 
 See [LICENSE](LICENSE) for the software license.
@@ -112,6 +115,14 @@ See [INSTALL.md](INSTALL.md) for setup instructions.
 
 Follow the setup guide, then run [our demo](notebooks/demo.ipynb). We make example data in the notebook and use it for plots and logistic regression. The demo uses made-up data, so these results are only for checking that the code runs.
 
+## Reproducing the analysis
+
+Follow [INSTALL.md](INSTALL.md) to install the full environment and place the
+approved Teams download under `data/`. Then run any notebook from a fresh
+kernel, or run all notebooks with `python scripts/run_notebooks.py`.
+See [the figure instructions](INSTALL.md#4-reproducing-the-figures) for workflows and outputs.
+No notebook path edits are needed.
+
 ## Expected Deliverables
 
 - Exploratory analysis of wheel profile measurements and hunting behavior
@@ -119,9 +130,6 @@ Follow the setup guide, then run [our demo](notebooks/demo.ipynb). We make examp
 - Visualizations and a summary of findings for MxV Rail
 - Documented code that allows authorized users to reproduce the results
 - Course milestone submissions and a final report
-
-A stretch goal is a prototype interface for loading new data, rerunning
-the analysis, and displaying results.
 
 ## Team
 

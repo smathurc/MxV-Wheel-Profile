@@ -1,0 +1,4 @@
+# All project notebooks, including FIT training and EDA explanations.
+-r requirements-comparison.txt
+shap==0.54.1
+tensorflow==2.21.0

@@ -17,6 +17,7 @@ __pycache__/
 
 # Local project datasets
 /data/
+/notebooks/final_merged_data*.csv
 
 # Generated results
 /output/

@@ -1,7 +1,7 @@
 # Figure Reproduction — Team Model Comparison
 
 **Source notebook:** `notebooks/08_team_model_comparison.ipynb`  
-**Installation and setup:** See `INSTALL.md` for the required environment and project setup.  
+**Installation and setup:** See [INSTALL.md](../INSTALL.md) for environment and project setup.
 **Use:** Figures are presented in the project presentation and/or final report.
 
 The notebook loads the assessment data through `load_benchmark_data()` in `src/team_data.py`. It evaluates models with leave-one-car-out validation, computes held-out performance metrics, and summarizes hunting outcomes by rail profile. The three charts below are created in the **“Rail patterns and performance figures”** section. The acceleration and displacement model comparisons are two panels of one saved image.
@@ -34,6 +34,6 @@ This grouped bar chart shows the **fraction of truck assessments classified as h
 
 ## Reproducing the Figures
 
-Follow **`INSTALL.md`** for installation and project setup, then run `notebooks/08_team_model_comparison.ipynb` from a fresh kernel. The notebook reads project data from `data/` or the directory specified by `HUNTING_DATA_DIR`, calculates the results, and saves the figures in `outputs/team_comparison/`.
+Follow [INSTALL.md](../INSTALL.md) for installation and project setup, then run `notebooks/08_team_model_comparison.ipynb` from a fresh kernel. The notebook reads project data from `data/` or the directory specified by `HUNTING_DATA_DIR`, calculates the results, and saves the figures in `outputs/team_comparison/`.
 
 The run also saves supporting tables, including `metrics.csv` and `rail_findings.csv`, in the same output directory. The plots are generated at **300 dpi** for PNG output and are also saved as PDF files.

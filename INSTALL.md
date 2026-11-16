@@ -143,6 +143,11 @@ common truck/rail assessments. Both comparisons hold out complete cars and fit
 scaling on training data. Acceleration and displacement remain separate outcomes;
 the notebooks explain the model settings, bootstrap calculations and limitations.
 
+Notebook 08's model comparison shows acceleration on the left and displacement
+on the right. Balanced accuracy averages recall for hunting and non-hunting.
+Its rail chart shows the observed hunting fraction for each criterion across
+the seven rail conditions.
+
 | Figure | Notebook / cell* | Output stem under `outputs/` |
 |---|---|---|
 | Within-car shape and displacement-hunting differences, Truck 2 minus Truck 1 | 04 / 8 | `profile_shape/within_car_shape_comparison` |

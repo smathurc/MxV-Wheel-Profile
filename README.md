@@ -88,7 +88,7 @@ of a causal wheel characteristic or a deployment-ready predictor.
 ├── src/
 ├── notebooks/
 ├── docs/
-├── example_data/
+├── data/
 └── tests/
 ```
 
@@ -97,8 +97,8 @@ of a causal wheel characteristic or a deployment-ready predictor.
 - `notebooks/`: Exploratory analyses with explanations of methods
   and findings.
 - `docs/`: Data documentation, assumptions, decisions, and project reports.
-- `example_data/`: Approved sample or synthetic data for demonstrating
-  the workflow.
+- `data/`: Where you put the approved project data after downloading it.
+  Only its README is in GitHub.
 - `tests/`: Tests for data processing and analysis code.
 - `requirements.txt`: Dependencies for the demo and all project notebooks.
 - `INSTALL.md`: Environment setup and reproduction instructions.

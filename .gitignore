@@ -15,8 +15,9 @@ __pycache__/
 *.pem
 *.key
 
-# Local project datasets
-/data/
+# Local project datasets (keep only the folder's README in GitHub)
+/data/*
+!/data/README.md
 /notebooks/final_merged_data*.csv
 
 # Generated results

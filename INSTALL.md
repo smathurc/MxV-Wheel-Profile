@@ -56,13 +56,18 @@ TensorFlow, using the package versions from our verified run.
 
 ## 2. Download the data
 
+The repository already has an empty `data/` folder with a README. The partner
+data is not in GitHub, so download it separately.
+
 In the private **-MxV-Wheel-Profile** Teams channel, open
 **Shared → Documents → Data**. Download the workbook, merged CSV and complete
-`Profiles` folder. Extract them into the repository's `data/` folder:
+`Profiles` folder. Extract the contents of the Teams `Data` folder into the
+repository's `data/` folder, not the `Data` folder itself:
 
 ```text
 MxV-Wheel-Profile/
 └── data/
+    ├── README.md                  # already in the repository
     ├── Eq_Con_Fit_Results.xlsm
     ├── final_merged_data.csv
     └── Profiles/
@@ -78,6 +83,7 @@ MxV-Wheel-Profile/
 Keep the original names and folder structure, without an extra `data/Data/`
 layer. `final_merged_data(in).csv` is also accepted, and the wheel-wear workbook
 may instead be directly under `data/`. Keep data files out of `notebooks/`.
+Our `.gitignore` keeps everything in `data/` except its README out of GitHub.
 
 Professors have approved access to the NDA data. Keep inputs and generated
 results private. The synthetic demo needs no partner data.

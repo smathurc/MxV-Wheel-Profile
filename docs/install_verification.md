@@ -1,5 +1,19 @@
 # Installation verification
 
+## Full notebook workflow — November 16, 2026
+
+Tested on macOS arm64 with Python 3.12.3. A fresh environment installed the
+single `requirements.txt` with no dependency conflicts. All 36 synthetic tests
+and the documented terminal demo passed.
+
+The earlier review completed all 11 notebooks in fresh kernels using the Teams
+data under root `data/`, without path edits. The setup cleanup preserves the
+model settings, validation splits and feature calculations.
+
+Windows/Linux package availability was checked, but the full workflow has not
+been run on those systems. Intel Macs are unsupported. See INSTALL.md for the
+supported setup. Earlier demo-only checks are preserved below.
+
 ## Local execution
 
 Passed October 13, 2026 on macOS using Python 3.12.3. Installed requirements.txt into a fresh temporary virtual environment. All demo cells ran from /tmp with no project data present. The final success message appeared. Notebook structure validation passed.

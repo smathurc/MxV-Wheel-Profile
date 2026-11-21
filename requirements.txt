@@ -1,10 +1,14 @@
-# Dependencies for the synthetic demo and current analysis notebooks.
-pandas>=2.2,<3
-numpy>=1.26,<3
-matplotlib>=3.8,<4
-scikit-learn>=1.4,<2
-openpyxl>=3.1,<4
-notebook>=7,<8
-ipykernel>=6,<7
-nbclient>=0.10,<1
-nbformat>=5.10,<6
+# Dependencies for all project notebooks (Python 3.12).
+pandas==2.3.3
+numpy==2.5.5
+matplotlib==3.11.2
+scikit-learn==1.9.1
+scipy==1.18.1
+openpyxl==3.1.5
+notebook==7.6.5
+ipykernel==6.31.0
+nbclient==0.11.0
+nbformat==5.11.1
+xgboost==3.4.1
+shap==0.54.1
+tensorflow==2.21.0

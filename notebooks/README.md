@@ -1,19 +1,25 @@
 # Notebooks
 
-Start with `demo.ipynb` to check the installation. It generates its own example data and runs without partner files. Follow `INSTALL.md` at the repository root.
+Follow [INSTALL.md](../INSTALL.md), then open `demo.ipynb` in Jupyter and restart
+and run all cells. The demo generates its own data. Every partner-data notebook
+uses the same root `data/` folder and can run independently.
 
-The other notebooks use approved project data:
+- `00_capstone_data_merge_work_and_info.ipynb`: rebuild the merged table from
+  the wear and simulation workbooks; write regenerated CSVs to `outputs/data/`.
+- `01_data_overview.ipynb`: inspect workbook coverage and profile files.
+- `02_empty_car_validation.ipynb`: check truck/rail groups and hollow-wear differences.
+- `03_contact_hunting_model.ipynb`: compare conicity and contact summaries using
+  car-held-out kernel ridge.
+- `03_rail_profiles.ipynb`: describe rail geometry, conicity and hunting patterns.
+- `04_profile_shape_extension.ipynb`: test the added tread-shape descriptors.
+- `05_Fit_File_Analysis.ipynb`: prepare FIT sequences and run the wheel-split LSTM trial.
+- `06_nguyenaa_randomforest_and_modeling.ipynb`: compare original and expanded
+  RF inputs, including wear summaries shared with Dom; group folds by truck.
+- `07_verbana3_EDA_and_modeling.ipynb`: EDA, logistic regression, XGBoost and
+  model explanations; group predictive splits by car.
+- `08_team_model_comparison.ipynb`: compare shared model families and feature
+  questions on common truck/rail observations with complete cars held out.
 
-- `00_capstone_data_merge_work_and_info`: combines wheel wear and simulation results.
-- `01_data_overview.ipynb`: inspects the workbook and profile files.
-- `02_empty_car_validation.ipynb`: checks the merged rows and compares left/right hollow wear.
-- `03_contact_hunting_model.ipynb`: tests wheelset mismatch and contact measurements
-- `03_rail_profiles.ipynb`: reads the seven rail profiles, measures how rounded the rail head is, and compares that with conicity and hunting.
-- `04_profile_shape_extension.ipynb`: tests tread-shape measurements add information
-- `05_Fit_File_Analysis.ipynb`: reads the fit files and analyzes them.
-- `06_nguyenaa_randomforest_and_modeling`: creates a RF classifier to analyze selected features.
-- `07_verbana3_EDA_and_modeling.ipynb`: creates exploratory plots and logistic regression models.
-- `08_team_model_comparison.ipynb`: Comparisons of wheel-wear and profile-shape findings.
-- `demo.ipynb`: runs a short demo of the project inputs and model.
-
-Input paths for these notebooks are listed in `INSTALL.md`.
+Personal-notebook scores use different feature lists, row units and splits.
+Use notebook 08 for the common comparison. Figure exports and their source cells
+are listed in [INSTALL.md](../INSTALL.md#4-reproducing-the-figures).

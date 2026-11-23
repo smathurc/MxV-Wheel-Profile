@@ -1,6 +1,7 @@
 # Source Code
 
-`project_paths.py` supplies the common data/output locations. `contact_hunting.py`
-and `profile_shapes.py` prepare checked contact and tread-shape comparisons.
-`team_data.py` and `axle_models.py` prepare the shared comparison's feature tables.
-See the root INSTALL.md for running the notebooks.
+`project_paths.py` finds inputs and creates output folders.
+`contact_hunting.py` fits the contact comparisons, and `profile_shapes.py`
+reads tread profiles and calculates shape measurements. `team_data.py` and
+`axle_models.py` build the feature tables for notebook 08. See
+[INSTALL.md](../INSTALL.md) to run the notebooks.

@@ -15,10 +15,10 @@ speed. As wheels and rails wear, their shapes change, which can reduce
 the critical speed. If that speed falls below the vehicle's operating
 speed, hunting can occur during normal operation.
 
-Our goal is to identify wheel profile characteristics associated with
-more frequent hunting and lower critical speeds. We compare standard wear
-measurements, contact summaries and tread-shape descriptors, using descriptive
-plots and grouped predictive checks.
+We compare standard wear measurements, contact summaries, and tread shape
+to see which measurements track more frequent hunting or lower critical
+speeds. We plot the measurements and test how well the models predict hunting
+when we keep related observations together.
 
 ## Research Questions
 
@@ -46,9 +46,9 @@ The data sources include:
 - Equivalent conicity for wheel-rail combinations
 - Measured two-dimensional wheel and rail profiles
 
-CSV/Excel results are joined to the supplied wheel and rail files by their
-car, axle/truck and rail identifiers. The notebooks document the joins and
-flag unresolved units or source conventions.
+We match the results and profile files by car, axle or truck, and rail.
+The notebooks show the joins and list the units or file conventions that
+still need confirmation.
 
 Wheels operate together within wheelsets and trucks, and the same vehicles
 are assessed under several rails. The shared comparison holds out complete
@@ -107,17 +107,17 @@ See [LICENSE](LICENSE) for the software license.
 
 ## Getting Started
 
-See [INSTALL.md](INSTALL.md) for setup instructions.
-
-Follow the setup guide, then run [our demo](notebooks/demo.ipynb). We make example data in the notebook and use it for plots and logistic regression. The demo uses made-up data, so these results are only for checking that the code runs.
+Follow [INSTALL.md](INSTALL.md), then run [the demo](notebooks/demo.ipynb) to
+check your setup. It generates its own data for two plots and a logistic
+regression model.
 
 ## Reproducing the analysis
 
 Follow [INSTALL.md](INSTALL.md) to install the full environment and place the
 approved Teams download under `data/`. Then open any notebook in Jupyter,
 restart its kernel and run all cells.
-See [the figure instructions](INSTALL.md#4-reproducing-the-figures) for workflows and outputs.
-No notebook path edits are needed.
+See [the figure instructions](INSTALL.md#4-reproducing-the-figures) for
+the notebook cells and output paths.
 
 ## Expected Deliverables
 

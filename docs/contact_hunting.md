@@ -1,20 +1,20 @@
 # Contact features and empty-car hunting
 
-This experiment checks whether wheel-rail contact measurements add useful
-information to equivalent conicity and rail profile. It uses nonlinear kernel
-ridge classification with a Gaussian kernel. The model fits signed labels using
-regularized least squares; its scores are not probabilities.
+We test whether contact measurements improve predictions over equivalent
+conicity and rail profile. We use kernel ridge classification with a Gaussian
+kernel. The model fits signed labels with regularized least squares and
+returns decision scores.
 
 The notebook starts from the team's merged CSV and the contact-point difference
 CSV. Keep approved inputs in the local `data` folder, or set `HUNTING_DATA_DIR`
 in your environment. The contact experiment does not need profile files or MATLAB.
 
-Each observation is one truck under one rail condition. Both wheelsets remain
-traceable through the join. The four kernel models add features in stages:
-rail identity; then mean conicity; then wheelset conicity difference; then the
-three contact measurements. Contact features use the maximum across the two
-wheelsets and `log1p` to reduce the influence of large values. The schema and
-units still need partner review.
+Each row represents one truck on one rail profile. The join retains the
+identifiers for both wheelsets. We start with rail profile and add mean
+conicity, the difference in wheelset conicity, and the three contact
+measurements in stages. For each contact measurement, we take the larger
+wheelset value and apply `log1p`. MxV Rail still needs to confirm the fields
+and units.
 
 Two outcome definitions are evaluated separately:
 
@@ -45,8 +45,8 @@ using training cars. Avoid relying on accuracy alone.
 
 The notebook reports four paired comparisons: adding mean conicity, adding
 wheelset mismatch, adding contact features, and comparing the full model with
-mean conicity alone. The last comparison prevents a gain over a weak intermediate
-model from looking like an improvement over the simpler alternative.
+the mean-conicity model. That last comparison uses mean conicity and rail
+profile as the baseline for the full model.
 
 The car-bootstrap ranges use 2,000 resamples with seed 42. Each draw samples
 whole cars with replacement, keeping their truck and rail assessments together.
@@ -55,18 +55,14 @@ predictions; it excludes retraining and feature-selection uncertainty and is
 not a formal significance test. Samples containing one target class are excluded
 from balanced-accuracy calculations and the valid sample count is returned.
 
-These are exploratory comparisons on a small set of cars. Feature ideas came
-from inspection of these data and the partner's materials; nested tuning does
-not undo that exploratory selection. This is not an external validation set or
-a causal analysis. The public digest already studied related contact and
-conicity descriptors, so this experiment should be presented as a benchmark
-and follow-up question, rather than a discovery of a new mechanism.
+We chose features after looking at these cars and the partner's materials.
+The same cars appear in the grouped validation, so treat the scores as
+exploratory. TD24-022 studied related contact and conicity descriptors. Our
+comparison gives MxV Rail a benchmark to test on additional cars.
 
-The features are processed geometry summaries, not measured raw-profile shape
-descriptors. The three contact summaries may be strongly correlated. This
-experiment evaluates them as a group and does not rank them as independent
-physical explanations. Nothing here supports prediction on new rail types or
-real-world deployment.
+We test the three processed contact summaries as a group. They may be
+correlated, so the comparison cannot separate their physical effects.
+We used the same seven rail profiles throughout.
 
 ## Running the notebook
 

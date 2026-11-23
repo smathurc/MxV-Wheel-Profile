@@ -20,7 +20,7 @@ from profile_shapes import SHAPE_COLUMNS, prepare_truck_shapes
 
 
 # Numeric lists from notebooks/06_nguyenaa_randomforest_and_modeling.ipynb.
-# The expanded RF shares wear-summary definitions with Dom, with a different full list.
+# Aaron's expanded random forest uses some of Dom's wear summaries.
 RF_ORIGINAL_COLUMNS = [
     "Eq Con 3mm", "Flange Width (Sd)_L", "Flange Width (Sd)_R",
     "Flange Height (Sh)_L", "Flange Height (Sh)_R", "Max Hollow Wear_L",
@@ -33,7 +33,7 @@ RF_ENGINEERED_COLUMNS = RF_ORIGINAL_COLUMNS + [
     "Flange Width (Sd)_Avg", "Flange Height (Sh)_Avg", "Max Hollow Wear_Avg",
     "Flange Radius_Avg", "Min Flange Root Radius_Avg",
 ]
-# Dom's wheel_features declaration, retaining its average/difference order.
+# Keep the order from Dom's wheel_features list.
 DOM_MEASUREMENTS = [
     "Flange Width", "Flange Width (Sd)", "Flange Height (Sh)", "qR",
     "Max Hollow Wear - AAR", "Max Flange Angle", "Flange Radius", "Min Flange Root Radius",

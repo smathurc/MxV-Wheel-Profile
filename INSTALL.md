@@ -1,7 +1,7 @@
 # Installation and Setup
 
-Use Python 3.12. After setup, every notebook reads the root `data/` folder
-without path edits.
+Use Python 3.12. The demo generates its own data. Research notebooks read
+from `data/` at the repository root.
 
 The full notebook workflow requires Windows x64, an Apple Silicon Mac
 (M1 or newer, macOS 12+), or Linux x86_64 with glibc 2.28+ (such as Ubuntu 22.04+).
@@ -39,11 +39,14 @@ On Windows, enable Python's PATH option during installation. If PowerShell
 blocks activation, use Command Prompt with `.venv\Scripts\activate.bat`.
 Activate the environment each time you open a terminal.
 
-On macOS, XGBoost needs OpenMP: run `brew install libomp` if you use Homebrew,
-or follow the [XGBoost installation guide](https://xgboost.readthedocs.io/en/stable/install.html).
-On Windows, install the [Microsoft Visual C++ x64 Redistributable](https://aka.ms/vs/17/release/vc_redist.x64.exe)
-if it is not already installed. Linux needs the OpenMP runtime; on Ubuntu/Debian,
-install it with `sudo apt install libgomp1` if it is missing.
+- **macOS:** Run `brew install libomp` or follow the
+  [XGBoost installation guide](https://xgboost.readthedocs.io/en/stable/install.html)
+  to install OpenMP.
+- **Windows:** Install the
+  [Microsoft Visual C++ x64 Redistributable](https://aka.ms/vs/17/release/vc_redist.x64.exe)
+  if needed.
+- **Linux:** Install the OpenMP runtime if needed. On Ubuntu or Debian, run
+  `sudo apt install libgomp1`.
 
 Install all notebook dependencies:
 
@@ -90,10 +93,10 @@ results private. The synthetic demo needs no partner data.
 
 ## 3. Verify and run
 
-Choose either Jupyter or the terminal. **Jupyter is the recommended option**
-for following the demo and viewing the figures as you run each notebook.
+Use Jupyter to run notebooks and view figures. The terminal commands below
+run the tests and save an executed copy of the demo.
 
-### Jupyter Notebook (recommended)
+### Jupyter Notebook
 
 From the repository root with the environment active, launch Jupyter:
 
@@ -134,10 +137,9 @@ Allow several minutes to run every notebook, including FIT training.
 
 ## 4. Reproducing the figures
 
-Notebooks 04 and 08 generate the profile and model comparisons for the report
-and presentation. Run them using section 3. Their cells contain preprocessing,
-analysis, plotting, titles, axis labels and export code; methods and limitations
-are explained in the notebooks.
+Run notebooks 04 and 08 with the Jupyter steps in section 3 to generate the
+shape and model comparison files. See the notebook text for the methods and
+limits of each comparison.
 
 Notebook 04 uses the merged CSV, contact table and WHLs to calculate tread-shape
 descriptors and compare predictions on held-out cars. It checks the source joins,
@@ -165,11 +167,19 @@ Each stem produces a 300 dpi `.png` and a vector `.pdf`. Notebook 04 also saves
 `_plot_data.csv` for each stem. Notebook 08 saves `metrics.csv`, `rail_findings.csv`
 and supporting predictions and comparisons in its output folder.
 
-Other exploratory plots appear in their notebooks and executed copies; they
-are not automatically saved as individual images. To inspect a completed run
-without retraining, open its executed notebook and tables. Share completed runs
-or intermediates through approved private Teams storage. Recompute after inputs
-or code change. FIT training is unseeded, so its scores can vary between runs.
+For the report plots that display inside the notebooks, open these cells
+after running the notebook:
+
+| Plot | Notebook / cell* |
+|---|---|
+| XGBoost SHAP summary | 07 / 88 |
+| Flange width and flange height difference | 07 / 98 |
+| Rail crown radius, conicity and hunting | 03 rail profiles / 22 |
+| Number of rails each truck hunted on | 03 rail profiles / 24 |
+
+Open an executed notebook to see its results without rerunning it. Share
+these runs through approved private Teams storage. FIT training is unseeded,
+so its scores can vary between runs.
 
 *Cells are numbered from 1, counting Markdown cells.*
 

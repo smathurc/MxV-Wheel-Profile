@@ -60,7 +60,7 @@ def read_tread(path):
     if band[0, 0] > TREAD_GRID[0] or band[-1, 0] < TREAD_GRID[-1]:
         raise ValueError("The profile does not cover the full tread window.")
     height = np.interp(TREAD_GRID, band[:, 0], band[:, 1])
-    # Centering removes export height offsets from the comparison, in memory.
+    # Center each profile at x = 85 before comparing shapes.
     return height - np.interp(85.0, band[:, 0], band[:, 1])
 
 
